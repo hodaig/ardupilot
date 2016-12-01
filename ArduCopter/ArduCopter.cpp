@@ -169,6 +169,7 @@ void Copter::setup()
 
     // initialise the main loop scheduler
     scheduler.init(&scheduler_tasks[0], ARRAY_SIZE(scheduler_tasks));
+    hybridSched.reset(&scheduler);  // TODO - hodai
 
     // setup initial performance counters
     perf_info_reset();
@@ -231,6 +232,7 @@ void Copter::loop()
 
     // tell the scheduler one tick has passed
     scheduler.tick();
+    hybridSched.tics(); // TODO - hodai
 
     // run all the tasks that are due to run. Note that we only
     // have to call this once per loop, as the tasks are scheduled
@@ -238,7 +240,9 @@ void Copter::loop()
     // the first call to the scheduler they won't run on a later
     // call until scheduler.tick() is called again
     uint32_t time_available = (timer + MAIN_LOOP_MICROS) - micros();
-    scheduler.run(time_available > MAIN_LOOP_MICROS ? 0u : time_available);
+    // TODO - hodai
+    // scheduler.run(time_available > MAIN_LOOP_MICROS ? 0u : time_available);
+    hybridSched.run(time_available > MAIN_LOOP_MICROS ? 0u : time_available);
 }
 
 

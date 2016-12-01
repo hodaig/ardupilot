@@ -61,3 +61,6 @@ LIBRARIES += AP_IRLock
 LIBRARIES += AC_InputManager
 LIBRARIES += AP_ADSB
 LIBRARIES += AP_Avoidance
+LIBRARIES += HybridSched
+LIBRARIES += HS_conditions
+LIBRARIES += HS_pugixml-1.7

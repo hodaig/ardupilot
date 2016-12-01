@@ -48,9 +48,11 @@
 
 #include <AP_HAL/AP_HAL.h>
 #include <AP_Vehicle/AP_Vehicle.h>
+//#include <HybridSched/HybridSched.h>
 
 class AP_Scheduler
 {
+    friend class HybridSched;
 public:
     // constructor
     AP_Scheduler(void);
