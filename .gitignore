@@ -83,3 +83,4 @@ tags
 terrain/
 test.ArduCopter/*
 Debug/*
+/Debug/
